@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run -it --rm --net=host -v $JAVA_HOME/:/opt/jdk/ -v "$HOME"/.m2/:/home/developer/.m2/ -v "$PWD"/:/home/developer/workspace/ rodrigomiguele/mvn "$@"
