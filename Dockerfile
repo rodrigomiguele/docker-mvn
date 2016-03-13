@@ -1,10 +1,8 @@
-FROM alpine
+FROM rodrigomiguele/oracle-jdk:jdk6
 
-ENV JAVA_HOME /opt/jdk
 ENV M2_URL https://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
 
-RUN mkdir opt && \
-    cd /opt && \
+RUN cd /opt && \
     wget $M2_URL && \
     tar -xzf apache-maven-*.tar.gz && \
     rm apache-maven-*.tar.gz && \
