@@ -3,7 +3,8 @@ FROM alpine
 ENV JAVA_HOME /opt/jdk
 ENV M2_URL http://ftp.unicamp.br/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 
-RUN cd /opt && \
+RUN mkdir opt && \
+    cd /opt && \
     wget $M2_URL && \
     tar -xzf apache-maven-*.tar.gz && \
     rm apache-maven-*.tar.gz && \
