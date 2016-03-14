@@ -3,6 +3,12 @@ FROM alpine
 ENV JAVA_HOME /opt/jdk
 ENV M2_URL http://ftp.unicamp.br/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 
+COPY glibc-2.21-r2.apk $HOME
+
+RUN cd $HOME && \
+    apk add --allow-untrusted glibc-2.21-r2.apk && \
+    rm -f glibc-2.21-r2.apk
+
 RUN mkdir opt && \
     cd /opt && \
     wget $M2_URL && \
