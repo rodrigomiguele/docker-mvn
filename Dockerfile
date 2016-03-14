@@ -5,9 +5,12 @@ ENV M2_URL http://ftp.unicamp.br/pub/apache/maven/maven-3/3.3.9/binaries/apache-
 
 COPY glibc-2.21-r2.apk /root
 
+RUN apk add --update libgcc
+
 RUN cd /root && \
     apk add --allow-untrusted glibc-2.21-r2.apk && \
-    rm -f glibc-2.21-r2.apk
+    rm -f glibc-2.21-r2.apk && \
+    apk info --purge
 
 RUN mkdir opt && \
     cd /opt && \
