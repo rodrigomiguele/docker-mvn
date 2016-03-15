@@ -7,6 +7,7 @@ RUN apk add --update openssl && \
     mkdir opt && \
     cd /opt && \
     wget $M2_URL && \
+    apk del --purge openssl && \
     tar -xzf apache-maven-*.tar.gz && \
     rm apache-maven-*.tar.gz && \
     mv apache-maven-* mvn
